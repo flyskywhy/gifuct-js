@@ -70,6 +70,8 @@ export const decompressFrame = (frame, gct, buildImagePatch) => {
     if (frame.gce.extras.transparentColorGiven) {
       resultImage.transparentIndex = frame.gce.transparentColorIndex
     }
+  } else {
+    resultImage.delay = 10 * 10
   }
 
   // create canvas usable imagedata if desired
