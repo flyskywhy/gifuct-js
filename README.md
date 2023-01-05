@@ -1,8 +1,13 @@
-# gifuct-js
+# @flyskywhy/gifuct-js
+
+[![npm version](http://img.shields.io/npm/v/@flyskywhy/gifuct-js.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dm/@flyskywhy/gifuct-js.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
+[![npm licence](http://img.shields.io/npm/l/@flyskywhy/gifuct-js.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
+[![Platform](https://img.shields.io/badge/platform-ios%20%7C%20android%20%7C%20web-989898.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
 
 A Simple to use javascript .GIF decoder.
 
-We needed to be able to efficiently load and manipulate GIF files for the **[Ruffle][1]** hybrid app (for mobiles). There are a couple of example libraries out there like [jsgif][2] & its derivative [libgif-js][3], however these are admittedly inefficient, and a mess. After pulling our hair out trying to understand the ancient, mystic gif format (hence the project name), we decided to just roll our own. This library also removes any specific drawing code, and simply parses, and decompresses gif files so that you can manipulate and display them however you like. We do include `imageData` patch construction though to get you most of the way there.
+We needed to be able to efficiently load and manipulate GIF files for the **[Ruffle][1]** hybrid app (for mobiles). There are a couple of example libraries out there like [jsgif][2] & its derivative [libgif-js][3], however these are admittedly inefficient, and a mess. After pulling our hair out trying to understand the ancient, mystic gif format (hence the project name), we decided to just roll our own. This library also removes any specific drawing code, and simply parses, and decompresses gif files so that you can manipulate and display them however you like. We do include `imageData` of full frame or `patch` of patch frame construction though to get you most of the way there.
 
 ### Demo
 
@@ -12,7 +17,7 @@ You can see a demo of this library in action **[here][4]**
 
 _Installation:_
 
-    npm install gifuct-js
+    npm install @flyskywhy/gifuct-js
 
 _Decoding:_
 
@@ -20,7 +25,7 @@ This decoder uses **[js-binary-schema-parser][5]** to parse the gif files (you c
 
 - _fetch_
 
-        import { parseGIF, decompressFrames } from 'gifuct-js'
+        import { parseGIF, decompressFrames } from '@flyskywhy/gifuct-js'
 
         var promisedGif = fetch(gifURL)
              .then(resp => resp.arrayBuffer())
@@ -32,7 +37,7 @@ This decoder uses **[js-binary-schema-parser][5]** to parse the gif files (you c
 
 - _XMLHttpRequest_
 
-        import { parseGIF, decompressFrames } from 'gifuct-js'
+        import { parseGIF, decompressFrames } from '@flyskywhy/gifuct-js'
 
         var oReq = new XMLHttpRequest();
         oReq.open("GET", gifURL, true);

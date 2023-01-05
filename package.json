@@ -1,7 +1,8 @@
 {
-  "name": "gifuct-js",
-  "version": "2.1.2",
+  "name": "@flyskywhy/gifuct-js",
+  "version": "2.2.0",
   "description": "Easy to use efficient .GIF parsing in javascript",
+  "private": false,
   "main": "lib/index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -10,19 +11,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matt-way/gifuct-js.git"
+    "url": "https://github.com/flyskywhy/gifuct-js.git"
   },
   "keywords": [
     "gif",
+    "imagedata",
+    "javascript",
     "parser",
-    "javascript"
+    "react",
+    "react-native"
   ],
   "author": "Matt Way",
+  "contributors": [
+    {
+      "name": "Li Zheng",
+      "email": "flyskywhy@gmail.com",
+      "url": "https://github.com/flyskywhy"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matt-way/gifuct-js/issues"
+    "url": "https://github.com/flyskywhy/gifuct-js/issues"
   },
-  "homepage": "https://github.com/matt-way/gifuct-js",
+  "homepage": "https://github.com/flyskywhy/gifuct-js",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
