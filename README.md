@@ -26,7 +26,7 @@ This decoder uses **[js-binary-schema-parser][5]** to parse the gif files (you c
              .then(resp => resp.arrayBuffer())
              .then(buff => {
                  var gif = parseGIF(buff)
-                 var frames = decompressFrames(gif, true)
+                 var frames = decompressFrames(gif, true, true)
                  return gif;
              });
 
@@ -42,7 +42,7 @@ This decoder uses **[js-binary-schema-parser][5]** to parse the gif files (you c
             var arrayBuffer = oReq.response; // Note: not oReq.responseText
             if (arrayBuffer) {
                 var gif = parseGIF(arrayBuffer);
-                var frames = decompressFrames(gif, true);
+                var frames = decompressFrames(gif, true, true);
                 // do something with the frame data
             }
         };
@@ -51,7 +51,7 @@ This decoder uses **[js-binary-schema-parser][5]** to parse the gif files (you c
 
 _Result:_
 
-The result of the `decompressFrames(gif, buildPatch)` function returns an array of all the GIF image frames, and their meta data. Here is a an example frame:
+The result of the `decompressFrames(gif, buildPatch, buildImageData)` function returns an array of all the GIF image frames, and their meta data. Here is a an example frame:
 
     {
         // The color table lookup index for each pixel
@@ -73,11 +73,22 @@ The result of the `decompressFrames(gif, buildPatch)` function returns an array 
         transparentIndex: 33,
         // Uint8ClampedArray color converted patch information for drawing
         patch: [...]
+        // ImageData for drawing
+        imageData: [...]
      }
 
 _Automatic Patch Generation:_
 
-If the `buildPatch` param of the `dcompressFrames()` function is `true`, the parser will not only return the parsed and decompressed gif frames, but will also create canvas ready `Uint8ClampedArray` arrays of each gif frame image, so that they can easily be drawn using `ctx.putImageData()` for example. This requirement is common, however it was made optional because it makes assumptions about transparency. The [demo][4] makes use of this option.
+If the `buildPatch` param of the `decompressFrames()` function is `true`, the parser will not only return the parsed and decompressed gif frames, but will also create canvas ready `Uint8ClampedArray` arrays of each gif frame image, so that they and `disposalType` and `dims` can be drawn using `ctx.putImageData()` for example. This requirement is common, however it was made optional because it makes assumptions about transparency. The [demo][4] makes use of this option.
+
+Note the `patch` maybe only a smaller patch on previous gif frame image, so the `disposalType` and `dims` will be needed to assist `patch`, ref to <https://github.com/matt-way/gifuct-js/issues/35> or `generateImageData()` in [src/index.js](src/index.js).
+
+_Automatic ImageData Generation:_
+
+If the `buildPatch` and `buildImageData` param of the `decompressFrames()` function are all `true`, the parser will create canvas ready ImageData of each gif frame image, so that they can easily be drawn using `ctx.putImageData()` for example.
+
+Note the `imageData` is a full of each gif frame image, so the `disposalType` and `dims` are not needed.
+
 
 _Disposal Method:_
 
