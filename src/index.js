@@ -1,7 +1,7 @@
 import GIF from 'js-binary-schema-parser/lib/schemas/gif'
 import { parse } from 'js-binary-schema-parser'
 import { buildStream } from 'js-binary-schema-parser/lib/parsers/uint8'
-import '@flyskywhy/react-native-browser-polyfill'
+import ImageData from '@canvas/image-data';
 import { getPixel, setPixel } from '@rgba-image/pixel'
 import { deinterlace } from './deinterlace'
 import { lzw } from './lzw'
