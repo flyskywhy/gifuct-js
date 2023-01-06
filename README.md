@@ -5,7 +5,7 @@
 [![npm licence](http://img.shields.io/npm/l/@flyskywhy/gifuct-js.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
 [![Platform](https://img.shields.io/badge/platform-ios%20%7C%20android%20%7C%20web-989898.svg?style=flat-square)](https://npmjs.org/package/@flyskywhy/gifuct-js "View this project on npm")
 
-A Simple to use javascript .GIF decoder.
+A Simple to use javascript .GIF decoder for Web and React Native.
 
 We needed to be able to efficiently load and manipulate GIF files for the **[Ruffle][1]** hybrid app (for mobiles). There are a couple of example libraries out there like [jsgif][2] & its derivative [libgif-js][3], however these are admittedly inefficient, and a mess. After pulling our hair out trying to understand the ancient, mystic gif format (hence the project name), we decided to just roll our own. This library also removes any specific drawing code, and simply parses, and decompresses gif files so that you can manipulate and display them however you like. We do include `imageData` of full frame or `patch` of patch frame construction though to get you most of the way there.
 
