@@ -112,7 +112,9 @@ const generateImageData = (parsedGif, resultImages) => {
       for (let y = 0; y < dimsHeight; y++) {
         for (let x = 0; x < dimsWidth; x++) {
           index = (y * dimsWidth + x) * 4
-          setPixel(imageData, x + left, y + top, patch[index], patch[index + 1], patch[index + 2], patch[index + 3])
+          if (patch[index + 3] > 0) {
+            setPixel(imageData, x + left, y + top, patch[index], patch[index + 1], patch[index + 2], patch[index + 3])
+          }
         }
       }
 
