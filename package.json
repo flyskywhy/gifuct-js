@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "@canvas/image-data": "1.0.0",
-    "@rgba-image/pixel": "0.1.4",
     "js-binary-schema-parser": "^2.0.3"
   }
 }
