@@ -1,7 +1,7 @@
 import GIF from 'js-binary-schema-parser/lib/schemas/gif'
 import { parse } from 'js-binary-schema-parser'
 import { buildStream } from 'js-binary-schema-parser/lib/parsers/uint8'
-import ImageData from '@canvas/image-data';
+import ImageData from '@canvas/image-data'
 import { deinterlace } from './deinterlace'
 import { lzw } from './lzw'
 
@@ -102,11 +102,11 @@ const generateImageData = (parsedGif, resultImages) => {
       if (gifNeedsDisposal) {
         for (let y = 0; y < dimsHeight; y++) {
           for (let x = 0; x < dimsWidth; x++) {
-            let op = (((y + top) * width) + x + left) * 4;
-            imageData.data[op++] = 0;
-            imageData.data[op++] = 0;
-            imageData.data[op++] = 0;
-            imageData.data[op] = 0;
+            let op = (((y + top) * width) + x + left) * 4
+            imageData.data[op++] = 0
+            imageData.data[op++] = 0
+            imageData.data[op++] = 0
+            imageData.data[op] = 0
           }
         }
         gifNeedsDisposal = false
@@ -116,11 +116,11 @@ const generateImageData = (parsedGif, resultImages) => {
         for (let x = 0; x < dimsWidth; x++) {
           index = (y * dimsWidth + x) * 4
           if (patch[index + 3] > 0) {
-            let op = (((y + top) * width) + x + left) * 4;
-            imageData.data[op++] = patch[index++];
-            imageData.data[op++] = patch[index++];
-            imageData.data[op++] = patch[index++];
-            imageData.data[op] = patch[index];
+            let op = (((y + top) * width) + x + left) * 4
+            imageData.data[op++] = patch[index++]
+            imageData.data[op++] = patch[index++]
+            imageData.data[op++] = patch[index++]
+            imageData.data[op] = patch[index]
           }
         }
       }
