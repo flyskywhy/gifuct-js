@@ -16,11 +16,16 @@ const generatePatch = image => {
   for (var i = 0; i < totalPixels; i++) {
     const pos = i * 4
     const colorIndex = image.pixels[i]
-    const color = image.colorTable[colorIndex] || [0, 0, 0]
-    patchData[pos] = color[0]
-    patchData[pos + 1] = color[1]
-    patchData[pos + 2] = color[2]
-    patchData[pos + 3] = colorIndex !== image.transparentIndex ? 255 : 0
+
+    // let the transparent RGBA just be 0 to be the same behavior of
+    // https://github.com/deanm/omggif/blob/0ec9069a525ec66223eadda3d62059d3685fd3b0/omggif.js#L654
+    if (colorIndex !== image.transparentIndex) {
+      const color = image.colorTable[colorIndex] || [0, 0, 0]
+      patchData[pos] = color[0]
+      patchData[pos + 1] = color[1]
+      patchData[pos + 2] = color[2]
+      patchData[pos + 3] = 255
+    }
   }
 
   return patchData
